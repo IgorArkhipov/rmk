@@ -1,5 +1,22 @@
 # Changelog
 
+## v0.2.1 (Vial maintenance candidate)
+
+K:04, K:04 Mini, and K:04 Micro standalone firmware only. Based on
+`347cf14f48cf994cb7f33ef2e9e026e59a7e2e4e`, the source of the refreshed
+v0.2.0 release archives (the original v0.2.0 tag points to `a06f0506`).
+
+### Fixes
+
+- Backported [#42](https://github.com/ergohaven/rmk/pull/42) (`ce77177b`): preserve usable host-selected BLE connections when startup parameter requests are rejected or no update event arrives. This affects macOS as well as Windows 11; [#75](https://github.com/ergohaven/rmk/issues/75) reports repeated disconnects about every 16 seconds on macOS.
+- Confirm active parameters from the current connection state, keeping wake latency and HID recovery checks strict.
+
+### Compatibility and validation
+
+- Retains the Vial protocol, keycodes, device identities, storage schema, and storage addresses of the refreshed v0.2.0 firmware. No Rynk migration or storage reset is included. Standalone K:04 definitions and VIA/USB versions advertise 0.2.1 / 0x0201; Qube and other keyboards retain 0.2.0.
+- Adds the existing eight production-source regression probes plus two cases for the macOS-selected 11.25 ms interval with missing or stale update events.
+- The issue reporter observed no disconnects for 3 minutes 52 seconds with the backport on K:04 Micro and macOS 15.4.1. This is reporter evidence, not an independent hardware test of this candidate or every variant.
+
 ## Unreleased
 
 ### Fixes
