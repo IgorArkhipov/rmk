@@ -652,14 +652,19 @@ for file in "${build_scripts[@]}"; do
     if [[ "$file" == "keyboards/k04/build.rs" ]]; then
         rg -q 'const STANDALONE_RELEASE_VERSION: &str = "0\.3\.0";' "$file" \
             || fail "$file: K:04 Standalone release version must be 0.3.0"
-        rg -q 'const STANDALONE_FIRMWARE_VERSION: &str = "0\.3\.0";' "$file" \
-            || fail "$file: K:04 Standalone numeric firmware version must be 0.3.0"
-        rg -q 'const STANDALONE_FIRMWARE_VERSION_BCD: &str = "0x0300";' "$file" \
-            || fail "$file: K:04 Standalone BCD firmware version must be 0x0300"
+        rg -q 'const STANDALONE_FIRMWARE_VERSION: &str = "0\.3\.1";' "$file" \
+            || fail "$file: K:04 Standalone numeric firmware version must be 0.3.1"
+        rg -q 'const STANDALONE_FIRMWARE_VERSION_BCD: &str = "0x0301";' "$file" \
+            || fail "$file: K:04 Standalone BCD firmware version must be 0x0301"
         rg -q 'const QUBE_FIRMWARE_VERSION: &str = "0\.3\.0";' "$file" \
             || fail "$file: K:04 Qube firmware version must be 0.3.0"
         rg -q 'const QUBE_FIRMWARE_VERSION_BCD: &str = "0x0300";' "$file" \
             || fail "$file: K:04 Qube BCD firmware version must be 0x0300"
+    elif [[ "$file" == "keyboards/phenom/build.rs" ]]; then
+        rg -Fq 'const FIRMWARE_VERSION: &str = "0.3.1";' "$file" \
+            || fail "$file: Phenom test firmware version must be 0.3.1"
+        rg -Fq 'const FIRMWARE_VERSION_BCD: &str = "0x0301";' "$file" \
+            || fail "$file: Phenom test BCD firmware version must be 0x0301"
     elif [[ "$file" == "keyboards/k03/build.rs" || "$file" == "keyboards/imperial44/build.rs" ]]; then
         rg -q 'const FIRMWARE_VERSION: &str = "0\.3\.0";' "$file" \
             || fail "$file: firmware version must be 0.3.0"
