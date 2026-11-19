@@ -28,10 +28,10 @@ fn main() {
     // VIA and USB encode only numeric major/minor/patch components. The full
     // release identity remains embedded in the selected Vial JSON.
     const STANDALONE_RELEASE_VERSION: &str = "0.3.0";
-    const STANDALONE_FIRMWARE_VERSION: &str = "0.3.0";
-    const STANDALONE_FIRMWARE_VERSION_BCD: &str = "0x0300";
-    const QUBE_FIRMWARE_VERSION: &str = "0.3.0";
-    const QUBE_FIRMWARE_VERSION_BCD: &str = "0x0300";
+    const STANDALONE_FIRMWARE_VERSION: &str = "0.3.1";
+    const STANDALONE_FIRMWARE_VERSION_BCD: &str = "0x0301";
+    const QUBE_FIRMWARE_VERSION: &str = "0.3.1";
+    const QUBE_FIRMWARE_VERSION_BCD: &str = "0x0301";
 
     let vial_path = configured_path("VIAL_JSON_PATH", "vial.json");
     let keyboard_path = configured_path("KEYBOARD_TOML_PATH", "keyboard.toml");
