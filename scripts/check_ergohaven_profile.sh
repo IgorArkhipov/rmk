@@ -650,8 +650,8 @@ mapfile -t build_scripts < <(
 )
 for file in "${build_scripts[@]}"; do
     if [[ "$file" == "keyboards/k04/build.rs" ]]; then
-        rg -q 'const STANDALONE_RELEASE_VERSION: &str = "0\.3\.0";' "$file" \
-            || fail "$file: K:04 Standalone release version must be 0.3.0"
+        rg -q 'const DEFINITION_RELEASE_VERSION: &str = "0\.3\.0";' "$file" \
+            || fail "$file: K:04 definition release version must be 0.3.0"
         rg -q 'const STANDALONE_FIRMWARE_VERSION: &str = "0\.3\.1";' "$file" \
             || fail "$file: K:04 Standalone numeric firmware version must be 0.3.1"
         rg -q 'const STANDALONE_FIRMWARE_VERSION_BCD: &str = "0x0301";' "$file" \
